@@ -1,50 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AppLovin - Our Apps</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      text-align: center;
-      padding: 2rem;
-      background-color: #f9f9f9;
-    }
-    h1 {
-      font-size: 2.5rem;
-      color: #333;
-    }
-    .app-list {
-      margin-top: 2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      align-items: center;
-    }
-    .app-link {
-      background-color: #fff;
-      padding: 1rem 2rem;
-      border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-      text-decoration: none;
-      color: #1a73e8;
-      font-weight: bold;
-      transition: 0.3s ease;
-    }
-    .app-link:hover {
-      background-color: #e8f0fe;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KharbLabs - Our Apps</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Apply Inter font globally */
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+        }
+        /* Custom scrollbar for a more modern look (optional) */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+        /* Animation for sections appearing on scroll (subtle) */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .app-icon { /* Style for app icons */
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 16px; /* Rounded corners for app icons */
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+    </style>
 </head>
-<body>
-  <h1>Welcome to Kharblabs</h1>
-  <p>Explore our apps on Google Play:</p>
+<body class="bg-slate-100 text-slate-800 antialiased">
 
-  <div class="app-list">
-    <a class="app-link" href="https://play.google.com/store/apps/details?id=com.example.app1" target="_blank">📱 App 1: My First App</a>
-    <a class="app-link" href="https://play.google.com/store/apps/details?id=com.example.app2" target="_blank">📱 App 2: Productivity Booster</a>
-    <a class="app-link" href="https://play.google.com/store/apps/details?id=com.example.app3" target="_blank">📱 App 3: Fun Game</a>
-  </div>
+    <nav class="bg-white/90 backdrop-blur-md shadow-md fixed w-full z-50 top-0">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#home" class="text-3xl font-bold text-sky-600">KharbLabs</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#apps" class="text-slate-700 hover:text-sky-600 transition duration-300 text-lg">Our Apps</a>
+                <a href="#about" class="text-slate-700 hover:text-sky-600 transition duration-300 text-lg">About Us</a>
+                <a href="#contact" class="text-slate-700 hover:text-sky-600 transition duration-300 text-lg">Contact</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-slate-700 focus:outline-none">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg">
+            <a href="#apps" class="block py-3 px-5 text-base text-slate-700 hover:bg-sky-50 hover:text-sky-600 transition duration-300">Our Apps</a>
+            <a href="#about" class="block py-3 px-5 text-base text-slate-700 hover:bg-sky-50 hover:text-sky-600 transition duration-300">About Us</a>
+            <a href="#contact" class="block py-3 px-5 text-base text-slate-700 hover:bg-sky-50 hover:text-sky-600 transition duration-300">Contact</a>
+        </div>
+    </nav>
+
+    <section id="home" class="pt-28 md:pt-36 pb-20 bg-gradient-to-br from-sky-500 to-indigo-600 text-white fade-in-section">
+        <div class="container mx-auto px-6 text-center">
+            <img src="https://placehold.co/180x180/FFFFFF/3B82F6?text=KharbLabs" alt="KharbLabs Logo" class="w-36 h-36 md:w-44 md:h-44 mx-auto rounded-2xl shadow-xl border-4 border-white mb-8">
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-5">Welcome to KharbLabs</h1>
+            <p class="text-xl md:text-2xl font-light mb-10 max-w-2xl mx-auto">Discover our innovative and user-friendly mobile applications, available on the Google Play Store.</p>
+            <a href="#apps" class="bg-white text-sky-600 font-semibold px-10 py-4 rounded-lg shadow-md hover:bg-slate-100 transition duration-300 transform hover:scale-105 text-lg">Explore Our Apps</a>
+        </div>
+    </section>
+
+    <section id="apps" class="py-16 md:py-24 fade-in-section">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-sky-700">Our Apps on the Google Play Store</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+                
+                <div class="bg-white rounded-xl shadow-xl overflow-hidden flex flex-col items-center p-8 text-center transform hover:scale-105 transition-transform duration-300">
+                    <img src="https://play-lh.googleusercontent.com/9gGYC33LdAR8JBcNBDJTuqNDRyKXBU4YNHj0Ki7VebmsW7I7QOQKCUT2yMF4p_PY_aw6=w240-h480" alt="App 1 Icon" class="app-icon">
+                    <h3 class="text-2xl font-semibold text-sky-600 mb-3">Balance Chemical Equation</h3>
+                    <p class="text-slate-600 text-base mb-6 h-20 overflow-hidden">Balance chemical reactions and equations. Search Chemical Reactions from about 12000 reactions.</p>
+                    <a href="https://play.google.com/store/apps/details?id=com.kharblabs.balancer.equationbalancer" target="_blank" rel="noopener noreferrer" class="mt-auto text-base bg-green-500 text-white font-semibold px-8 py-3 rounded-lg hover:bg-green-600 transition duration-300 flex items-center">
+                        <i class="fab fa-google-play mr-2"></i> View on Play Store
+                    </a>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-xl overflow-hidden flex flex-col items-center p-8 text-center transform hover:scale-105 transition-transform duration-300">
+                    <img src="https://play-lh.googleusercontent.com/AHESjuFDsYzHrWbVPhCQchH-zBZu3PVmpKMD2d4_9ksZOK1-3L7Vha801W6sYb0lm-NH=w240-h480" alt="App 2 Icon" class="app-icon">
+                    <h3 class="text-2xl font-semibold text-teal-600 mb-3">LabBro - Solution Calculator</h3>
+                    <p class="text-slate-600 text-base mb-6 h-20 overflow-hidden">Your bro in Chemistry lab. Helps you create Solutions in different type of concentrations.</p>
+                    <a href="https://play.google.com/store/apps/details?id=com.kharblabs.labbro" target="_blank" rel="noopener noreferrer" class="mt-auto text-base bg-green-500 text-white font-semibold px-8 py-3 rounded-lg hover:bg-green-600 transition duration-300 flex items-center">
+                        <i class="fab fa-google-play mr-2"></i> View on Play Store
+                    </a>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-xl overflow-hidden flex flex-col items-center p-8 text-center transform hover:scale-105 transition-transform duration-300">
+                    <img src="https://play-lh.googleusercontent.com/MXgJxjvgtUA1eEFOATN6sZ1n50ictz9HAFPnn0HMUhps9ur69wxxcF99Grq1miiHGSQ=w240-h480" alt="App 3 Icon" class="app-icon">
+                    <h3 class="text-2xl font-semibold text-amber-600 mb-3">All Math Formula - Formula Hub</h3>
+                    <p class="text-slate-600 text-base mb-6 h-20 overflow-hidden">Formulas for all topics of maths. Trigonometry, Inverse Trigonometry, Complex numbers, Algebra, quadratic equation, Probability, Vectors, Differentiation, Integration Sequences and series,.</p>
+                    <a href="https://play.google.com/store/apps/details?id=com.kharblabs.mathsformulas" target="_blank" rel="noopener noreferrer" class="mt-auto text-base bg-green-500 text-white font-semibold px-8 py-3 rounded-lg hover:bg-green-600 transition duration-300 flex items-center">
+                        <i class="fab fa-google-play mr-2"></i> View on Play Store
+                    </a>
+                </div>
+                
+                </div>
+        </div>
+    </section>
+
+   
+
+    <section id="contact" class="py-16 md:py-24 bg-gradient-to-br from-sky-600 to-indigo-700 text-white fade-in-section">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8">Get In Touch</h2>
+            <p class="text-lg mb-10 max-w-2xl mx-auto">
+                Have questions, feedback, or a project idea? We'd love to hear from you!
+            </p>
+            <div class="flex justify-center items-center space-x-4 mb-10">
+                <a href="mailto:contact@kharblabs.com" class="text-white hover:text-sky-200 transition duration-300 text-3xl" title="Email Us">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                </div>
+            <a href="mailto:kharblabs@gmail.com" class="bg-white text-sky-600 font-semibold px-8 py-3 rounded-lg shadow-md hover:bg-slate-100 transition duration-300 transform hover:scale-105 text-lg">
+                Email: kharblabs@gmail.com
+            </a>
+        </div>
+    </section>
+
+    <footer class="bg-slate-800 text-slate-300 py-10 text-center">
+        <div class="container mx-auto px-6">
+            <p>&copy; <span id="currentYear"></span> KharbLabs. All rights reserved.</p>
+            <p class="text-sm mt-2">Crafting innovative apps for you.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Close mobile menu when a link is clicked
+            const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        }
+
+        // Set current year in footer
+        const currentYearElement = document.getElementById('currentYear');
+        if (currentYearElement) {
+            currentYearElement.textContent = new Date().getFullYear();
+        }
+        
+
+        // Intersection Observer for fade-in sections
+        const sections = document.querySelectorAll('.fade-in-section');
+        const options = {
+            root: null, 
+            rootMargin: '0px', 
+            threshold: 0.1 
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, options);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+
 </body>
 </html>
